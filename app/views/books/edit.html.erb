@@ -1,0 +1,22 @@
+<div class="container p-3">
+    <div class="row">
+        <div class ="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+            <h1>Editing Book</h1>
+            <%= render 'books/error', book: @book %>
+            <%= form_with model: @book, url:book_path(@book.id), method: :patch do |f| %>
+            <div class="form-group">
+                <label for="book_Title" class="form-label">Title</label>
+                <%= f.text_field :title, id: "book_title", class: "form-control book_title" %>
+            </div>
+            <div class="form-group">
+                <label for="book_Body" class="form-label">Opinion</label>
+                <%= f.text_area :body, id: "book_body", class: "form-control book_body" %>
+            </div>
+            <div class="form-group">
+                <%= f.submit "Update Book", class: "btn btn-success mb-3" %>
+            </div>
+            <% end %>
+            <a href= '/books/<%= @book.id %>'>Show</a>|<a href= '/books'>Back</a>
+        </div>
+    </div>
+</div>
